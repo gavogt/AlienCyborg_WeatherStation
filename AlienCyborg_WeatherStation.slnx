@@ -1,3 +1,6 @@
 <Solution>
+  <Folder Name="/scripts/">
+    <File Path="weatherstation.cpp" />
+  </Folder>
   <Project Path="AlienCyborg_WeatherStation/AlienCyborg_WeatherStation.csproj" />
 </Solution>
