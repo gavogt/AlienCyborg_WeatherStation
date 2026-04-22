@@ -282,12 +282,56 @@ h1 {
 .metric-topline,
 .panel-heading {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
 }
 
+.metric-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .metric-tag {
   color: var(--cyan);
+}
+
+.unit-toggle {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid rgba(66, 248, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(66, 248, 255, 0.06);
+}
+
+.unit-option {
+  display: inline-grid;
+  width: 28px;
+  height: 24px;
+  place-items: center;
+  border: 0;
+  border-radius: 6px;
+  color: var(--muted);
+  background: transparent;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.unit-option:hover,
+.unit-option:focus-visible {
+  color: white;
+  outline: 1px solid rgba(125, 255, 107, 0.55);
+  outline-offset: 1px;
+}
+
+.unit-option.is-active {
+  color: #041014;
+  background: linear-gradient(135deg, var(--green), var(--cyan));
+  box-shadow: 0 0 16px rgba(125, 255, 107, 0.34);
 }
 
 .metric-value {

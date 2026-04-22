@@ -36,9 +36,15 @@
         <article class="metric-card primary">
             <div class="metric-topline">
                 <span>Thermal channel</span>
-                <span class="metric-tag">DHT20</span>
+                <div class="metric-actions">
+                    <span class="metric-tag">DHT20</span>
+                    <div class="unit-toggle" role="group" aria-label="Temperature unit">
+                        <button type="button" class="unit-option is-active" data-temp-unit="F" aria-pressed="true">F</button>
+                        <button type="button" class="unit-option" data-temp-unit="C" aria-pressed="false">C</button>
+                    </div>
+                </div>
             </div>
-            <div class="metric-value"><span data-metric="temperature">22.8</span><small>C</small></div>
+            <div class="metric-value"><span data-metric="temperature">73.0</span><small data-metric="temperatureUnit">F</small></div>
             <div class="metric-bar"><span style="--level: 62%"></span></div>
         </article>
 
