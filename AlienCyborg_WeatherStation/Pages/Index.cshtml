@@ -1,10 +1,116 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Alien Cyborg Weather";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="dashboard-shell" aria-label="Alien Cyborg weather station dashboard">
+    <div class="hero-grid">
+        <div class="command-panel">
+            <p class="eyebrow">Orbital weather uplink</p>
+            <h1>Alien Cyborg WeatherStation</h1>
+            <p class="hero-copy">
+                Atmospheric telemetry from the ESP32-S3 sensor array, tuned for pressure, rain,
+                CO2, humidity, and thermal drift.
+            </p>
+            <div class="system-strip" aria-label="Station state">
+                <span class="pulse-dot" aria-hidden="true"></span>
+                <span>Telemetry live</span>
+                <span class="divider"></span>
+                <span>MQTT channel: weatherstation/telemetry</span>
+            </div>
+        </div>
+
+        <aside class="cyborg-core" aria-label="Sensor core status">
+            <div class="core-ring">
+                <div class="core-eye" aria-hidden="true"></div>
+            </div>
+            <div class="core-meta">
+                <span>CYBORG CORE</span>
+                <strong id="healthIndex">98%</strong>
+            </div>
+        </aside>
+    </div>
+
+    <div class="telemetry-grid" aria-label="Weather readings">
+        <article class="metric-card primary">
+            <div class="metric-topline">
+                <span>Thermal channel</span>
+                <span class="metric-tag">DHT20</span>
+            </div>
+            <div class="metric-value"><span data-metric="temperature">22.8</span><small>C</small></div>
+            <div class="metric-bar"><span style="--level: 62%"></span></div>
+        </article>
+
+        <article class="metric-card">
+            <div class="metric-topline">
+                <span>Humidity field</span>
+                <span class="metric-tag">DHT20</span>
+            </div>
+            <div class="metric-value"><span data-metric="humidity">46</span><small>%</small></div>
+            <div class="metric-bar aqua"><span style="--level: 46%"></span></div>
+        </article>
+
+        <article class="metric-card">
+            <div class="metric-topline">
+                <span>Pressure hull</span>
+                <span class="metric-tag">BMP280</span>
+            </div>
+            <div class="metric-value compact"><span data-metric="pressure">1012.4</span><small>hPa</small></div>
+            <div class="metric-bar violet"><span style="--level: 72%"></span></div>
+        </article>
+
+        <article class="metric-card warning">
+            <div class="metric-topline">
+                <span>CO2 trace</span>
+                <span class="metric-tag">SCD41</span>
+            </div>
+            <div class="metric-value compact"><span data-metric="co2">612</span><small>ppm</small></div>
+            <div class="metric-bar amber"><span style="--level: 38%"></span></div>
+        </article>
+    </div>
+
+    <section class="lower-grid" aria-label="Station diagnostics">
+        <article class="signal-panel">
+            <div>
+                <p class="eyebrow">Precipitation matrix</p>
+                <h2 id="rainState">Dry surface</h2>
+            </div>
+            <div class="rain-orbit" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </article>
+
+        <article class="diagnostic-panel">
+            <div class="panel-heading">
+                <span>Sensor bus</span>
+                <strong>I2C / MQTT</strong>
+            </div>
+            <ul class="diagnostic-list">
+                <li><span>BMP280</span><strong>0x77 online</strong></li>
+                <li><span>SCD41</span><strong>0x62 online</strong></li>
+                <li><span>DHT20</span><strong>0x38 online</strong></li>
+                <li><span>Rain probe</span><strong>GPIO 16 armed</strong></li>
+            </ul>
+        </article>
+
+        <article class="timeline-panel">
+            <div class="panel-heading">
+                <span>Signal stream</span>
+                <strong id="lastSync">syncing</strong>
+            </div>
+            <div class="signal-lines" aria-hidden="true">
+                <span style="--height: 42%"></span>
+                <span style="--height: 68%"></span>
+                <span style="--height: 35%"></span>
+                <span style="--height: 82%"></span>
+                <span style="--height: 56%"></span>
+                <span style="--height: 74%"></span>
+                <span style="--height: 48%"></span>
+                <span style="--height: 90%"></span>
+            </div>
+        </article>
+    </section>
+</section>
