@@ -6,6 +6,7 @@ const metricNodes = {
 };
 
 const rainState = document.getElementById("rainState");
+const rainVisual = document.getElementById("rainVisual");
 const lastSync = document.getElementById("lastSync");
 const healthIndex = document.getElementById("healthIndex");
 
@@ -15,6 +16,16 @@ function setText(node, value) {
   if (node) {
     node.textContent = value;
   }
+}
+
+function setRainVisual(isWet) {
+  if (!rainVisual) {
+    return;
+  }
+
+  rainVisual.src = isWet ? rainVisual.dataset.wetSrc : rainVisual.dataset.drySrc;
+  rainVisual.alt = isWet ? "Rain detected alien weather station scene" : "Dry alien weather station scene";
+  rainVisual.classList.toggle("is-wet", isWet);
 }
 
 function updateDemoTelemetry() {
@@ -31,6 +42,7 @@ function updateDemoTelemetry() {
   setText(metricNodes.pressure, pressure.toFixed(1));
   setText(metricNodes.co2, co2);
   setText(rainState, isWet ? "Rain detected" : "Dry surface");
+  setRainVisual(isWet);
   setText(healthIndex, `${97 + (tick % 3)}%`);
   setText(lastSync, new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" }));
 }

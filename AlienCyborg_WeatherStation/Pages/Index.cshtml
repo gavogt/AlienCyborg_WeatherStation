@@ -72,14 +72,17 @@
 
     <section class="lower-grid" aria-label="Station diagnostics">
         <article class="signal-panel">
-            <div>
+            <div class="precipitation-copy">
                 <p class="eyebrow">Precipitation matrix</p>
                 <h2 id="rainState">Dry surface</h2>
             </div>
-            <div class="rain-orbit" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="rain-visual" aria-label="Precipitation visual state">
+                <img
+                    id="rainVisual"
+                    src="/images/dry.png"
+                    alt="Dry alien weather station scene"
+                    data-dry-src="/images/dry.png"
+                    data-wet-src="/images/rain.png" />
             </div>
         </article>
 
